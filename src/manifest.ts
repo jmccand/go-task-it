@@ -2,13 +2,17 @@ import fs from 'fs-extra'
 import type { Manifest } from 'webextension-polyfill'
 import type PkgType from '../package.json'
 import { isDev, isFirefox, port, r } from '../scripts/utils'
+import type { OAuth } from './oauth_manifest'
+import { oauth_manifest } from './oauth_manifest'
+
+type ManifestWithOAuth = Manifest.WebExtensionManifest & OAuth
 
 export async function getManifest() {
   const pkg = await fs.readJSON(r('package.json')) as typeof PkgType
 
   // update this file to update this manifest.json
   // can also be conditional based on your need
-  const manifest: Manifest.WebExtensionManifest = {
+  const manifest: ManifestWithOAuth = {
     manifest_version: 3,
     name: pkg.displayName || pkg.name,
     version: pkg.version,
@@ -39,6 +43,7 @@ export async function getManifest() {
       'storage',
       'activeTab',
       'sidePanel',
+      'identity',
     ],
     host_permissions: ['*://*/*'],
     content_scripts: [
@@ -63,6 +68,7 @@ export async function getManifest() {
         ? `script-src \'self\' http://localhost:${port}; object-src \'self\'`
         : 'script-src \'self\'; object-src \'self\'',
     },
+    ...oauth_manifest,
   }
 
   // add sidepanel

@@ -2,13 +2,17 @@
 import { storageDemo } from '~/logic/storage'
 </script>
 
-<script src="./Options.ts" setup lang="ts" />
-
 <template>
   <main class="px-4 py-10 text-center text-gray-700 dark:text-gray-200">
     <Logo />
     <div>Options</div>
     <SharedSubtitle />
+    <Suspense>
+      <TaskLists />
+      <template #fallback>
+        <div>Loading...</div>
+      </template>
+    </Suspense>
 
     <input v-model="storageDemo" class="border border-gray-400 rounded px-2 py-1 mt-2">
 

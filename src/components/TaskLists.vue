@@ -14,7 +14,7 @@ taskLists.value = await chrome.runtime.sendMessage({
 <template>
   <div>
     <h1>Task Lists</h1>
-    <div class="taskListsContainer">
+    <div class="flex flex-row w-full flex-justify-center gap-col-sm">
       <div v-for="taskList in taskLists" :key="taskList.id">
         <div>{{ taskList.title }}</div>
       </div>

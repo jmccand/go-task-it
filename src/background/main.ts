@@ -1,6 +1,3 @@
-import { onMessage, sendMessage } from 'webext-bridge/background'
-import type { Tabs } from 'webextension-polyfill'
-
 // only on dev mode
 if (import.meta.hot) {
   // @ts-expect-error for background HMR
@@ -24,7 +21,7 @@ browser.runtime.onInstalled.addListener((): void => {
   // eslint-disable-next-line no-console
   console.log('Extension installed')
 })
-
+/*
 let previousTabId = 0
 
 // communication example: send previous tab title from background page
@@ -63,7 +60,7 @@ onMessage('get-current-tab', async () => {
     }
   }
 })
-
+*/
 // background script to handle interaction with tasks API
 
 // @ts-expect-error missing type for chrome

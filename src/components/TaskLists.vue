@@ -9,6 +9,9 @@ taskLists.value = await chrome.runtime.sendMessage({
 }).then((response: any) => {
   return response.taskLists
 })
+if (Array.isArray(taskLists.value) && taskLists.value.length !== 0 && !taskLists.value[0]?.id) {
+  console.error(taskLists.value)
+}
 </script>
 
 <template>

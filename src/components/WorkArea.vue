@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TaskList } from '../types/tasktypes.d.ts'
+import type { TaskList } from '../types/tasktypes.js'
 
 // get list options to add task to
 const taskLists = ref<TaskList[]>([])

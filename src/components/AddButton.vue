@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import AddIcon from '~/assets/google-mui/add.svg'
+import addicon from '~/assets/google-mui/add.svg'
 
 const isClicked = ref(false)
 
@@ -12,7 +12,7 @@ function handleClick() {
 <template>
   <div>
     <button @click="handleClick">
-      <AddIcon />
+      <img :src="addicon">
       Create
     </button>
     <ul v-if="isClicked" class="menu">

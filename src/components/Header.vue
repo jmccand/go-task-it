@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import MenuIcon from '~/assets/google-mui/menu.svg'
-import Logo from '~/assets/logo.svg'
+import menuicon from '~/assets/google-mui/menu.svg'
+import logo from '~/assets/logo.svg'
 </script>
 
 <template>
@@ -8,10 +8,10 @@ import Logo from '~/assets/logo.svg'
   <div>
     <div>
       <!-- needs onclick thing -->
-      <MenuIcon class="icon" />
+      <img :src="menuicon" class="icon">
     </div>
     <div>
-      <Logo class="icon" />
+      <img :src="logo" class="icon">
     </div>
   </div>
 

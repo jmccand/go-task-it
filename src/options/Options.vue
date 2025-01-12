@@ -10,7 +10,7 @@ import { storageDemo } from '~/logic/storage'
     <div>Options</div>
     <SharedSubtitle />
     <Suspense>
-      <TaskLists />
+      <WorkArea />
       <template #fallback>
         <div>Loading...</div>
       </template>
